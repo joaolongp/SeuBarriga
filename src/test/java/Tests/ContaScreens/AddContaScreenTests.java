@@ -1,6 +1,6 @@
-package Tests;
+package Tests.ContaScreens;
 
-import PageObjects.AddContaScreen;
+import PageObjects.ContaScreens.AddContaScreen;
 import PageObjects.HomeScreen;
 import PageObjects.LoginScreen;
 import Util.SetUp;

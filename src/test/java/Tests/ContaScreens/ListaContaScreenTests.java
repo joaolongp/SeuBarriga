@@ -1,11 +1,12 @@
-package Tests;
+package Tests.ContaScreens;
 
 import PageObjects.HomeScreen;
 
-import PageObjects.ListaContaScreen;
+import PageObjects.ContaScreens.ListaContaScreen;
 import PageObjects.LoginScreen;
 import Util.SetUp;
 import org.junit.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -35,6 +36,12 @@ public class ListaContaScreenTests {
             nomesString.add(nome.getText());
         }
         Assert.assertThat(nomesString, containsInAnyOrder("Menino Ney", "Parci"));
+    }
+
+    @Test
+    public void excluirContaTest(){
+        screen.excluirConta(0);
+        Assert.assertEquals("Conta removida com sucesso!", driver.findElement(By.cssSelector("body > div.alert.alert-success")));
     }
 
     @After
