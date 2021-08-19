@@ -12,7 +12,7 @@ public class AddContaScreen {
     }
 
     public void saveButton(){
-        driver.findElement(By.tagName("button")).click();
+        driver.findElement(By.cssSelector("btn.btn-primary")).click();
     }
 
     public void setName(String name){

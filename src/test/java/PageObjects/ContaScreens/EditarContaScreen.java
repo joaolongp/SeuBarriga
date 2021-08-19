@@ -17,6 +17,6 @@ public class EditarContaScreen {
     }
 
     public void saveButton(){
-        driver.findElement(By.className("btn-group")).click();
+        driver.findElement(By.cssSelector("btn.btn-primary")).click();
     }
 }
