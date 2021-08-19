@@ -16,8 +16,7 @@ public class ListaContaScreen {
     }
 
     public List<WebElement> getContas(){
-        contas=driver.findElement(By.id("tabelaContas")).findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
-        return contas;
+        return contas = driver.findElement(By.id("tabelaContas")).findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
     }
 
     private void clickExcluir(WebElement conta){

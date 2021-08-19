@@ -14,11 +14,11 @@ public class LoginScreen {
     public void Do(String email, String senha){
         driver.findElement(By.id("email")).sendKeys(email);
         driver.findElement(By.id("senha")).sendKeys(senha);
-        driver.findElement(By.xpath("/html/body/div[2]/form/button")).click();
+        driver.findElement(By.tagName("button")).click();
     }
     public void Do(){
         driver.findElement(By.id("email")).sendKeys("test@mail.com");
         driver.findElement(By.id("senha")).sendKeys("test");
-        driver.findElement(By.xpath("/html/body/div[2]/form/button")).click();
+        driver.findElement(By.tagName("button")).click();
     }
 }

@@ -29,4 +29,8 @@ public class HomeScreen {
         openDropDown();
         contasDropDown.get(1).click();
     }
+
+    public void criarMovimentacao(){
+        driver.findElement(By.cssSelector("#navbar > ul > li:nth-child(3) > a")).click();
+    }
 }
