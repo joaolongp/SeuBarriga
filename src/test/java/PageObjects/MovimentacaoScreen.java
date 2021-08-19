@@ -1,4 +1,4 @@
-package PageObjects.MovimentacaoScreens;
+package PageObjects;
 
 import Data.MovimentacaoMandatoryFields;
 import com.sun.org.glassfish.gmbal.Description;

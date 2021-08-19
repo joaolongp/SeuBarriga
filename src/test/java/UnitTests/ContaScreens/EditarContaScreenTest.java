@@ -1,4 +1,4 @@
-package Tests.ContaScreens;
+package UnitTests.ContaScreens;
 
 import PageObjects.ContaScreens.EditarContaScreen;
 import PageObjects.HomeScreen;

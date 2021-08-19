@@ -33,4 +33,8 @@ public class HomeScreen {
     public void criarMovimentacao(){
         driver.findElement(By.cssSelector("#navbar > ul > li:nth-child(3) > a")).click();
     }
+
+    public void resumoMensal(){
+        driver.findElement(By.cssSelector("#navbar > ul > li:nth-child(4) > a")).click();
+    }
 }
