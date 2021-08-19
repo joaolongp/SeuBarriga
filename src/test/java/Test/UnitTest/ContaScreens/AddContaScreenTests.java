@@ -1,4 +1,4 @@
-package UnitTests.ContaScreens;
+package Test.UnitTest.ContaScreens;
 
 import PageObjects.ContaScreens.AddContaScreen;
 import PageObjects.HomeScreen;
@@ -23,7 +23,7 @@ public class AddContaScreenTests {
     @Test
     public void noNameTest(){
         screen.saveButton();
-        Assert.assertEquals("Informe o nome da conta",driver.findElement(By.cssSelector("body > div.alert.alert-danger")).getText());
+        Assert.assertEquals("Informe o nome da conta",driver.findElement(By.className("alert-danger")).getText());
     }
 
     @Test

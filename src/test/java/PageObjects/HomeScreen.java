@@ -6,13 +6,12 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class HomeScreen {
+public class HomeScreen extends BaseScreen{
 
-    private WebDriver driver;
     private List<WebElement> contasDropDown;
 
     public HomeScreen(WebDriver driver){
-        this.driver = driver;
+        super(driver);
     }
 
     private void openDropDown(){

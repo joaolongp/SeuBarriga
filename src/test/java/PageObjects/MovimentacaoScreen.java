@@ -12,13 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class MovimentacaoScreen {
+public class MovimentacaoScreen extends BaseScreen{
 
-    private WebDriver driver;
     public Map<String, String> mandatoryFields = new MovimentacaoMandatoryFields().getMandatoryFields();
 
     public MovimentacaoScreen(WebDriver driver){
-        this.driver = driver;
+        super(driver);
     }
 
     public void saveButton(){
@@ -38,22 +37,27 @@ public class MovimentacaoScreen {
     }
 
     public void setDataTransacao(String data){
+        driver.findElement(By.id("data_transacao")).clear();
         driver.findElement(By.id("data_transacao")).sendKeys(data);
     }
 
     public void setDataPgto(String data){
+        driver.findElement(By.id("data_pagamento")).clear();
         driver.findElement(By.id("data_pagamento")).sendKeys(data);
     }
 
     public void setDescricao(String descricao){
+        driver.findElement(By.id("descricao")).clear();
         driver.findElement(By.id("descricao")).sendKeys(descricao);
     }
 
     public void setInteressado(String interessado){
+        driver.findElement(By.id("interessado")).clear();
         driver.findElement(By.id("interessado")).sendKeys(interessado);
     }
 
     public void setValor(String valor){
+        driver.findElement(By.id("valor")).clear();
         driver.findElement(By.id("valor")).sendKeys(valor);
     }
 

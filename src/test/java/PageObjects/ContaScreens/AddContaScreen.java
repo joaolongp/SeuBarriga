@@ -1,18 +1,17 @@
 package PageObjects.ContaScreens;
 
+import PageObjects.BaseScreen;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class AddContaScreen {
-
-    private WebDriver driver;
+public class AddContaScreen extends BaseScreen {
 
     public AddContaScreen(WebDriver driver){
-        this.driver = driver;
+        super(driver);
     }
 
     public void saveButton(){
-        driver.findElement(By.cssSelector("btn.btn-primary")).click();
+        driver.findElement(By.tagName("button")).click();
     }
 
     public void setName(String name){

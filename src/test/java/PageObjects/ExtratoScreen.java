@@ -10,13 +10,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ExtratoScreen {
+public class ExtratoScreen extends BaseScreen{
 
-    private WebDriver driver;
     private Map<Integer, List<WebElement>> dados = new HashMap();
 
     public ExtratoScreen(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public void setMes(String mes) {

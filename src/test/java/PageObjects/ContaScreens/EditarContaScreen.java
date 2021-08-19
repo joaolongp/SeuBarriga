@@ -1,14 +1,13 @@
 package PageObjects.ContaScreens;
 
+import PageObjects.BaseScreen;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class EditarContaScreen {
-
-    private WebDriver driver;
+public class EditarContaScreen extends BaseScreen {
 
     public EditarContaScreen(WebDriver driver){
-        this.driver = driver;
+        super(driver);
     }
 
     public void setName(String name){
@@ -17,6 +16,6 @@ public class EditarContaScreen {
     }
 
     public void saveButton(){
-        driver.findElement(By.cssSelector("btn.btn-primary")).click();
+        driver.findElement(By.className("btn-primary")).click();
     }
 }

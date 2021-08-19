@@ -1,9 +1,10 @@
-package UnitTests;
+package Test.UnitTest;
 
 import PageObjects.HomeScreen;
 import PageObjects.LoginScreen;
 import PageObjects.MovimentacaoScreen;
 import Util.SetUp;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -58,5 +59,12 @@ public class MovimentacaoScreenTests {
         screen.saveButton();
 
         Assert.assertEquals("Movimentação adicionada com sucesso!", driver.findElement(By.cssSelector(".alert.alert-success")).getText());
+    }
+
+    @After
+    public void teardown() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }

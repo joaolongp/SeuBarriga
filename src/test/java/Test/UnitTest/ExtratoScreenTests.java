@@ -1,4 +1,4 @@
-package UnitTests;
+package Test.UnitTest;
 
 import PageObjects.ExtratoScreen;
 import PageObjects.HomeScreen;
