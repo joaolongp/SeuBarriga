@@ -19,21 +19,21 @@ public class HomeScreen extends BaseScreen{
         contasDropDown= driver.findElement(By.className("dropdown-menu")).findElements(By.tagName("li"));
     }
 
-    public void addConta(){
+    public void addAccount(){
         openDropDown();
         contasDropDown.get(0).click();
     }
 
-    public void listaContas(){
+    public void listAccounts(){
         openDropDown();
         contasDropDown.get(1).click();
     }
 
-    public void criarMovimentacao(){
+    public void createMovimentation(){
         driver.findElement(By.cssSelector("#navbar > ul > li:nth-child(3) > a")).click();
     }
 
-    public void resumoMensal(){
+    public void monthlyReview(){
         driver.findElement(By.cssSelector("#navbar > ul > li:nth-child(4) > a")).click();
     }
 }

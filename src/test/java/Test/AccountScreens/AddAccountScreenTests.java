@@ -1,6 +1,6 @@
-package Test.UnitTest.ContaScreens;
+package Test.AccountScreens;
 
-import PageObjects.ContaScreens.AddContaScreen;
+import PageObjects.AccountScreens.AddAccountScreen;
 import PageObjects.HomeScreen;
 import PageObjects.LoginScreen;
 import Util.SetUp;
@@ -8,16 +8,16 @@ import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class AddContaScreenTests {
+public class AddAccountScreenTests {
 
     private static WebDriver driver = new SetUp().getWebDriver();
-    private AddContaScreen screen = new AddContaScreen(driver);
+    private AddAccountScreen screen = new AddAccountScreen(driver);
 
     @BeforeClass
     public static void startUp(){
         driver.get("https://seubarriga.wcaquino.me/");
         new LoginScreen(driver).Do();
-        new HomeScreen(driver).addConta();
+        new HomeScreen(driver).addAccount();
     }
 
     @Test

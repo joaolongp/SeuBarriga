@@ -1,4 +1,4 @@
-package Test.UnitTest;
+package Test;
 
 import PageObjects.LoginScreen;
 import Util.SetUp;

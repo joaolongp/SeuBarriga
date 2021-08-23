@@ -1,30 +1,30 @@
 package Util;
 
 import PageObjects.*;
-import PageObjects.ContaScreens.AddContaScreen;
-import PageObjects.ContaScreens.EditarContaScreen;
-import PageObjects.ContaScreens.ListaContaScreen;
+import PageObjects.AccountScreens.AddAccountScreen;
+import PageObjects.AccountScreens.EditAccountScreen;
+import PageObjects.AccountScreens.ListAccountScreen;
 import org.openqa.selenium.WebDriver;
 
 public class Screens extends BaseScreen {
 
     public LoginScreen loginScreen;
     public HomeScreen homeScreen;
-    public MovimentacaoScreen movimentacaoScreen;
-    public ExtratoScreen extratoScreen;
-    public AddContaScreen addContaScreen;
-    public EditarContaScreen editarContaScreen;
-    public ListaContaScreen listaContaScreen;
+    public MovimentationScreen movimentacaoScreen;
+    public ExtractScreen extratoScreen;
+    public AddAccountScreen addContaScreen;
+    public EditAccountScreen editAccountScreen;
+    public ListAccountScreen listaContaScreen;
 
     public Screens(WebDriver driver){
         super(driver);
         loginScreen = new LoginScreen(driver);
         homeScreen = new HomeScreen(driver);
-        movimentacaoScreen = new MovimentacaoScreen(driver);
-        extratoScreen = new ExtratoScreen(driver);
-        addContaScreen = new AddContaScreen(driver);
-        editarContaScreen = new EditarContaScreen(driver);
-        listaContaScreen = new ListaContaScreen(driver);
+        movimentacaoScreen = new MovimentationScreen(driver);
+        extratoScreen = new ExtractScreen(driver);
+        addContaScreen = new AddAccountScreen(driver);
+        editAccountScreen = new EditAccountScreen(driver);
+        listaContaScreen = new ListAccountScreen(driver);
     }
 
     public void backtoHome(){

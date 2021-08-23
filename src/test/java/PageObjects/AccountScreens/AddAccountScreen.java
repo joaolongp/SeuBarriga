@@ -1,12 +1,12 @@
-package PageObjects.ContaScreens;
+package PageObjects.AccountScreens;
 
 import PageObjects.BaseScreen;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class AddContaScreen extends BaseScreen {
+public class AddAccountScreen extends BaseScreen {
 
-    public AddContaScreen(WebDriver driver){
+    public AddAccountScreen(WebDriver driver){
         super(driver);
     }
 

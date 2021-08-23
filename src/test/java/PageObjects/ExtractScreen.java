@@ -10,29 +10,29 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ExtratoScreen extends BaseScreen{
+public class ExtractScreen extends BaseScreen{
 
     private Map<Integer, List<WebElement>> dados = new HashMap();
 
-    public ExtratoScreen(WebDriver driver) {
+    public ExtractScreen(WebDriver driver) {
         super(driver);
     }
 
-    public void setMes(String mes) {
+    public void setMonth(String mes) {
         Select dropDown = new Select(driver.findElement(By.id("mes")));
         dropDown.selectByValue(mes);
     }
 
-    public void setAno(String ano) {
+    public void setYear(String ano) {
         Select dropDown = new Select(driver.findElement(By.id("ano")));
         dropDown.selectByValue(ano);
     }
 
-    public void buscarButton() {
+    public void searchButton() {
         driver.findElement(By.cssSelector(".btn.btn-primary")).click();
     }
 
-    public Map<Integer, List<WebElement>> getDados() {
+    public Map<Integer, List<WebElement>> getData() {
         int index = 0;
         for (WebElement element : driver.findElements(By.cssSelector("#tabelaExtrato > tbody > tr"))) {
             dados.put(index++ , element.findElements(By.tagName("td")));
@@ -41,7 +41,7 @@ public class ExtratoScreen extends BaseScreen{
     }
 
     public List<WebElement> getItens(int index){
-        return getDados().get(index);
+        return getData().get(index);
     }
 
     public WebElement getItemByIndex(int dado, int index){

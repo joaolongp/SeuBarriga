@@ -9,9 +9,9 @@ public class LoginScreen extends BaseScreen{
         super(driver);
     }
 
-    public void Do(String email, String senha){
+    public void Do(String email, String password){
         driver.findElement(By.id("email")).sendKeys(email);
-        driver.findElement(By.id("senha")).sendKeys(senha);
+        driver.findElement(By.id("senha")).sendKeys(password);
         driver.findElement(By.tagName("button")).click();
     }
     public void Do(){

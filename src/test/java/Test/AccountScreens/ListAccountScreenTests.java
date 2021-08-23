@@ -1,8 +1,8 @@
-package Test.UnitTest.ContaScreens;
+package Test.AccountScreens;
 
 import PageObjects.HomeScreen;
 
-import PageObjects.ContaScreens.ListaContaScreen;
+import PageObjects.AccountScreens.ListAccountScreen;
 import PageObjects.LoginScreen;
 import Util.SetUp;
 import org.junit.*;
@@ -15,31 +15,31 @@ import java.util.List;
 
 import static org.hamcrest.Matchers.containsInAnyOrder;
 
-public class ListaContaScreenTests {
+public class ListAccountScreenTests {
 
     private static WebDriver driver = new SetUp().getWebDriver();
-    private ListaContaScreen screen = new ListaContaScreen(driver);
+    private ListAccountScreen screen = new ListAccountScreen(driver);
 
     @BeforeClass
     public static void startUp(){
         driver.get("https://seubarriga.wcaquino.me/");
         new LoginScreen(driver).Do();
-        new HomeScreen(driver).listaContas();
+        new HomeScreen(driver).listAccounts();
     }
 
     @Test
-    public void listaNomesTest(){
-        List<WebElement> nomes = screen.getContas();
-        List<String> nomesString = new ArrayList<>();
-        for (WebElement nome : nomes) {
-            nomesString.add(nome.getText());
+    public void listNamesTest(){
+        List<WebElement> names = screen.getAccounts();
+        List<String> namesString = new ArrayList<>();
+        for (WebElement nome : names) {
+            namesString.add(nome.getText());
         }
-        Assert.assertThat(nomesString, containsInAnyOrder("Menino Ney", "Parci"));
+        Assert.assertThat(namesString, containsInAnyOrder("Menino Ney", "Parci"));
     }
 
     @Test
-    public void excluirContaTest(){
-        screen.excluirConta(0);
+    public void removeAccountTest(){
+        screen.removeAccount(0);
         Assert.assertEquals("Conta removida com sucesso!", driver.findElement(By.cssSelector("body > div.alert.alert-success")));
     }
 

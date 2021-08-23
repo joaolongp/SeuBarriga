@@ -1,6 +1,6 @@
-package Test.UnitTest;
+package Test;
 
-import PageObjects.ExtratoScreen;
+import PageObjects.ExtractScreen;
 import PageObjects.HomeScreen;
 import PageObjects.LoginScreen;
 import Util.SetUp;
@@ -10,23 +10,23 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-public class ExtratoScreenTests {
+public class ExtractScreenTests {
 
     private static WebDriver driver = new SetUp().getWebDriver();
-    private ExtratoScreen screen = new ExtratoScreen(driver);
+    private ExtractScreen screen = new ExtractScreen(driver);
 
     @BeforeClass
     public static void startUp(){
         driver.get("https://seubarriga.wcaquino.me/");
         new LoginScreen(driver).Do();
-        new HomeScreen(driver).resumoMensal();
+        new HomeScreen(driver).monthlyReview();
     }
 
     @Test
     public void validateExtratoTest(){
-        screen.setMes("07");
-        screen.setAno("2020");
-        screen.buscarButton();
+        screen.setMonth("07");
+        screen.setYear("2020");
+        screen.searchButton();
         Assert.assertEquals("test",screen.getItemByIndex(0,0).getText());
         Assert.assertEquals("01/07/2020",screen.getItemByIndex(0,1).getText());
         Assert.assertEquals("Parci",screen.getItemByIndex(0,2).getText());

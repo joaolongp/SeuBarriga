@@ -1,8 +1,8 @@
-package Test.UnitTest;
+package Test;
 
 import PageObjects.HomeScreen;
 import PageObjects.LoginScreen;
-import PageObjects.MovimentacaoScreen;
+import PageObjects.MovimentationScreen;
 import Util.SetUp;
 import org.junit.After;
 import org.junit.Assert;
@@ -11,16 +11,16 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class MovimentacaoScreenTests {
+public class MovimentationScreenTests {
 
     private static WebDriver driver = new SetUp().getWebDriver();
-    private MovimentacaoScreen screen = new MovimentacaoScreen(driver);
+    private MovimentationScreen screen = new MovimentationScreen(driver);
 
     @BeforeClass
     public static void startUp(){
         driver.get("https://seubarriga.wcaquino.me/");
         new LoginScreen(driver).Do();
-        new HomeScreen(driver).criarMovimentacao();
+        new HomeScreen(driver).createMovimentation();
     }
 
     @Test
@@ -33,14 +33,14 @@ public class MovimentacaoScreenTests {
 
     @Test
     public void invalidValorTest(){
-        screen.setDataTransacao("01/07/2020");
-        screen.setDataPgto("01/07/2020");
-        screen.setDescricao("test");
-        screen.setInteressado("test");
+        screen.setDateTransaction("01/07/2020");
+        screen.setDatePayment("01/07/2020");
+        screen.setDesc("test");
+        screen.setInterested("test");
         screen.setValor("abc");
-        screen.setTipo("REC");
-        screen.setConta(0);
-        screen.setSituacao("status_pago");
+        screen.setType("REC");
+        screen.setAccount(0);
+        screen.setSituation("status_pago");
         screen.saveButton();
 
         Assert.assertTrue(screen.errorMessagesList().contains(screen.mandatoryFields.get("caracterValor")));
@@ -48,14 +48,14 @@ public class MovimentacaoScreenTests {
 
     @Test
     public void movimentacaoValidaTest(){
-        screen.setDataTransacao("01/07/2020");
-        screen.setDataPgto("01/07/2020");
-        screen.setDescricao("test");
-        screen.setInteressado("test");
+        screen.setDateTransaction("01/07/2020");
+        screen.setDatePayment("01/07/2020");
+        screen.setDesc("test");
+        screen.setInterested("test");
         screen.setValor("200");
-        screen.setTipo("REC");
-        screen.setConta(0);
-        screen.setSituacao("status_pago");
+        screen.setType("REC");
+        screen.setAccount(0);
+        screen.setSituation("status_pago");
         screen.saveButton();
 
         Assert.assertEquals("Movimentação adicionada com sucesso!", driver.findElement(By.cssSelector(".alert.alert-success")).getText());
