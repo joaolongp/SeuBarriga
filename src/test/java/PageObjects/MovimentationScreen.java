@@ -1,6 +1,6 @@
 package PageObjects;
 
-import Data.MovimentacaoMandatoryFields;
+import Data.MovimentationMandatoryFields;
 import com.sun.org.glassfish.gmbal.Description;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class MovimentationScreen extends BaseScreen{
 
-    public Map<String, String> mandatoryFields = new MovimentacaoMandatoryFields().getMandatoryFields();
+    public Map<String, String> mandatoryFields = new MovimentationMandatoryFields().getMandatoryFields();
 
     public MovimentationScreen(WebDriver driver){
         super(driver);

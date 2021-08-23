@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MovimentacaoMandatoryFields {
+public class MovimentationMandatoryFields {
 
     Map<String, String> mandatoryFields = new HashMap();
 
-    public MovimentacaoMandatoryFields(){
+    public MovimentationMandatoryFields(){
         mandatoryFields.put("dataMovimento","Data da Movimentação é obrigatório");
         mandatoryFields.put("dataPgto","Data do pagamento é obrigatório");
         mandatoryFields.put("descricao","Descrição é obrigatório");
