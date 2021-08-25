@@ -2,7 +2,6 @@ package Test.AccountTests;
 
 import Pages.AccountPages.AddAccountPage;
 import Pages.HomePage;
-import Pages.LoginPage;
 import Test.BaseTests;
 import Util.LoginUtil;
 import org.junit.*;
