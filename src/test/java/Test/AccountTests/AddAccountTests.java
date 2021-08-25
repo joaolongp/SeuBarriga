@@ -4,6 +4,7 @@ import Pages.AccountPages.AddAccountPage;
 import Pages.HomePage;
 import Pages.LoginPage;
 import Test.BaseTests;
+import Util.LoginUtil;
 import org.junit.*;
 
 public class AddAccountTests extends BaseTests {
@@ -12,7 +13,7 @@ public class AddAccountTests extends BaseTests {
 
     @Before
     public void set(){
-        new LoginPage(driver).signIn("test@mail.com", "test");
+        new LoginUtil(driver);
         new HomePage(driver).openAddAccount();
     }
 

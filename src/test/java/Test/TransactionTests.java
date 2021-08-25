@@ -5,6 +5,7 @@ import Pages.AccountPages.AddAccountPage;
 import Pages.HomePage;
 import Pages.LoginPage;
 import Pages.TransactionPage;
+import Util.LoginUtil;
 import org.junit.*;
 
 public class TransactionTests extends BaseTests{
@@ -15,7 +16,7 @@ public class TransactionTests extends BaseTests{
 
     @Before
     public void set(){
-        new LoginPage(driver).signIn("test@mail.com", "test");
+        new LoginUtil(driver);
         new HomePage(driver).openAddAccount();
         accountName = "Neymar";
         new AddAccountPage(driver).setNameAndSave(accountName);
