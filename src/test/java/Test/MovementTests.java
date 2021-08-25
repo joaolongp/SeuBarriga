@@ -17,7 +17,7 @@ public class MovementTests extends BaseTests{
     public void set(){
         new LoginPage(driver).signIn("test@mail.com", "test");
         new HomePage(driver).openAddAccount();
-        accountName = "Adriano";
+        accountName = "Neymar";
         new AddAccountPage(driver).setNameAndSave(accountName);
         new HomePage(driver).openCreateMovement();
     }
