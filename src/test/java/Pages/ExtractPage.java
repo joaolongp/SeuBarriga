@@ -27,22 +27,22 @@ public class ExtractPage extends Extract {
     }
 
     public String getDataRow(int index, int row){
-        return dataFromMovement(index,row).getText();
+        return dataFromTransaction(index,row).getText();
     }
 
     public Map<Integer, WebElement>getData(int index){
-        return movementByIndex(index);
+        return TransactionByIndex(index);
     }
 
-//    public List<String> dataFromMovementByIndex(int index){
+//    public List<String> dataFromTransactionByIndex(int index){
 //        int row = 0;
 //        for (WebElement element:
-//             getMovementByIndex(index)) {
+//             getTransactionByIndex(index)) {
 //
 //        }
 //    }
 //
-//    public Map<Integer, WebElement> getMovementByIndex(int index){
+//    public Map<Integer, WebElement> getTransactionByIndex(int index){
 //        return rows().get(index);
 //    }
 }

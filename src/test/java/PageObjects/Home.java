@@ -22,7 +22,7 @@ public class Home extends Base {
         return driver.findElement(By.linkText("Listar"));
     }
 
-    protected WebElement createMovement(){
+    protected WebElement createTransaction(){
         return driver.findElement(By.linkText("Criar Movimentação"));
     }
 

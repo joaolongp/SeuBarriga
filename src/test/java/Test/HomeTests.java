@@ -28,8 +28,8 @@ public class HomeTests extends BaseTests{
     }
 
     @Test
-    public void validateCreateMovement(){
-        page.openCreateMovement();
+    public void validateCreateTransaction(){
+        page.openCreateTransaction();
         Assert.assertEquals("Seu Barriga - Movimentações", page.title());
     }
 

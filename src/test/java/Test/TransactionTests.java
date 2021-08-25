@@ -1,16 +1,16 @@
 package Test;
 
-import Data.MovementMandatoryFields;
+import Data.TransactionMandatoryFields;
 import Pages.AccountPages.AddAccountPage;
 import Pages.HomePage;
 import Pages.LoginPage;
-import Pages.MovementPage;
+import Pages.TransactionPage;
 import org.junit.*;
 
-public class MovementTests extends BaseTests{
+public class TransactionTests extends BaseTests{
 
-    private MovementPage page = new MovementPage(driver);
-    private MovementMandatoryFields data = new MovementMandatoryFields();
+    private TransactionPage page = new TransactionPage(driver);
+    private TransactionMandatoryFields data = new TransactionMandatoryFields();
     private String accountName;
 
     @Before
@@ -19,7 +19,7 @@ public class MovementTests extends BaseTests{
         new HomePage(driver).openAddAccount();
         accountName = "Neymar";
         new AddAccountPage(driver).setNameAndSave(accountName);
-        new HomePage(driver).openCreateMovement();
+        new HomePage(driver).openCreateTransaction();
     }
 
     @Test
@@ -121,7 +121,7 @@ public class MovementTests extends BaseTests{
     }
 
     @Test
-    public void validMovementTest(){
+    public void validTransactionTest(){
         page.setDateTransaction("01/07/2020");
         page.setDatePayment("01/07/2020");
         page.setDescription("descriçao para a movimentação");

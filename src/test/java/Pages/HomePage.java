@@ -23,8 +23,8 @@ public class HomePage extends Home {
         listAccount().click();
     }
 
-    public void openCreateMovement(){
-        createMovement().click();
+    public void openCreateTransaction(){
+        createTransaction().click();
     }
 
     public void openMonthlyReview(){

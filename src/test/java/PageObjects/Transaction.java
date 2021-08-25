@@ -7,9 +7,9 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
-public class Movement extends Base {
+public class Transaction extends Base {
 
-    public Movement(WebDriver driver){
+    public Transaction(WebDriver driver){
         super(driver);
     }
 

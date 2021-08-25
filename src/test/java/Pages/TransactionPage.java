@@ -1,15 +1,15 @@
 package Pages;
 
-import PageObjects.Movement;
+import PageObjects.Transaction;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MovementPage extends Movement {
+public class TransactionPage extends Transaction {
 
-    public MovementPage(WebDriver driver) {
+    public TransactionPage(WebDriver driver) {
         super(driver);
     }
 

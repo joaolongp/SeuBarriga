@@ -3,7 +3,7 @@ package Test;
 import Pages.AccountPages.AddAccountPage;
 import Pages.ExtractPage;
 import Pages.HomePage;
-import Pages.MovementPage;
+import Pages.TransactionPage;
 import Util.LoginUtil;
 import org.junit.Assert;
 import org.junit.Before;
@@ -21,21 +21,21 @@ public class ExtractTests extends BaseTests{
         new HomePage(driver).openAddAccount();
         accountName = "Geromel";
         new AddAccountPage(driver).setNameAndSave(accountName);
-        new HomePage(driver).openCreateMovement();
-        createMovement(new MovementPage(driver));
+        new HomePage(driver).openCreateTransaction();
+        createTransaction(new TransactionPage(driver));
         new HomePage(driver).openMonthlyReview();
     }
 
-    private void createMovement(MovementPage movementPage){
-        movementPage.setDateTransaction("01/07/2020");
-        movementPage.setDatePayment("");
-        movementPage.setDescription("descriçao para a movimentação");
-        movementPage.setInterested("Seu Barriga");
-        movementPage.setValor("200");
-        movementPage.setType("REC");
-        movementPage.setAccount(accountName);
-        movementPage.setSituation("status_pago");
-        movementPage.saveButton();
+    private void createTransaction(TransactionPage TransactionPage){
+        TransactionPage.setDateTransaction("01/07/2020");
+        TransactionPage.setDatePayment("");
+        TransactionPage.setDescription("descriçao para a movimentação");
+        TransactionPage.setInterested("Seu Barriga");
+        TransactionPage.setValor("200");
+        TransactionPage.setType("REC");
+        TransactionPage.setAccount(accountName);
+        TransactionPage.setSituation("status_pago");
+        TransactionPage.saveButton();
     }
 
     @Test
