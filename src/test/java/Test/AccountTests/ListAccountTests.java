@@ -1,22 +1,11 @@
 package Test.AccountTests;
 
-import PageObjects.Account.ListAccount;
 import Pages.AccountPages.AddAccountPage;
 import Pages.AccountPages.ListAccountPage;
 import Pages.HomePage;
-import Pages.LoginPage;
 import Util.LoginUtil;
 import Test.BaseTests;
-import Util.SetUp;
 import org.junit.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.hamcrest.Matchers.containsInAnyOrder;
 
 public class ListAccountTests extends BaseTests {
 

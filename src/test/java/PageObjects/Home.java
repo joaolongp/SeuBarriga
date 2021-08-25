@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
-
 public class Home extends Base {
 
     public Home(WebDriver driver){
@@ -16,19 +14,19 @@ public class Home extends Base {
         return driver.findElement(By.className("dropdown"));
     }
 
-    public WebElement addAccount(){
+    protected WebElement addAccount(){
         return driver.findElement(By.linkText("Adicionar"));
     }
 
-    public WebElement listAccount(){
+    protected WebElement listAccount(){
         return driver.findElement(By.linkText("Listar"));
     }
 
-    public WebElement createMovement(){
+    protected WebElement createMovement(){
         return driver.findElement(By.linkText("Criar Movimentação"));
     }
 
-    public WebElement monthlyReview(){
+    protected WebElement monthlyReview(){
         return driver.findElement(By.linkText("Resumo Mensal"));
     }
 }

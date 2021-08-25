@@ -1,44 +1,48 @@
 package Test;
 
-import PageObjects.Extract;
-import PageObjects.Home;
-import PageObjects.Login;
-import Pages.LoginPage;
-import Util.SetUp;
-import org.junit.After;
+import Pages.AccountPages.AddAccountPage;
+import Pages.ExtractPage;
+import Pages.HomePage;
+import Pages.MovementPage;
+import Util.LoginUtil;
 import org.junit.Assert;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 
-public class ExtractTests {
+public class ExtractTests extends BaseTests{
 
-    private static WebDriver driver = new SetUp().getWebDriver();
-    private Extract screen = new Extract(driver);
+    private ExtractPage page = new ExtractPage(driver);
+    private String accountName;
 
-    @BeforeClass
-    public static void startUp(){
-        driver.get("https://seubarriga.wcaquino.me/");
-        new LoginPage(driver).signIn("test@mail.com", "test");
-        new Home(driver).monthlyReview();
+
+    @Before
+    public void set(){
+        new LoginUtil(driver);
+        new HomePage(driver).openAddAccount();
+        accountName = "Geromel";
+        new AddAccountPage(driver).setNameAndSave(accountName);
+        new HomePage(driver).openCreateMovement();
+        createMovement(new MovementPage(driver));
+        new HomePage(driver).openMonthlyReview();
+    }
+
+    private void createMovement(MovementPage movementPage){
+        movementPage.setDateTransaction("01/07/2020");
+        movementPage.setDatePayment("");
+        movementPage.setDescription("descriçao para a movimentação");
+        movementPage.setInterested("Seu Barriga");
+        movementPage.setValor("200");
+        movementPage.setType("REC");
+        movementPage.setAccount(accountName);
+        movementPage.setSituation("status_pago");
+        movementPage.saveButton();
     }
 
     @Test
     public void validateExtratoTest(){
-        screen.setMonth("07");
-        screen.setYear("2020");
-        screen.searchButton();
-        Assert.assertEquals("test",screen.getItemByIndex(0,0).getText());
-        Assert.assertEquals("01/07/2020",screen.getItemByIndex(0,1).getText());
-        Assert.assertEquals("Parci",screen.getItemByIndex(0,2).getText());
-        Assert.assertEquals("200.00",screen.getItemByIndex(0,3).getText());
-        Assert.assertEquals("Pago",screen.getItemByIndex(0,4).getText());
-    }
-
-    @After
-    public void teardown() {
-        if (driver != null) {
-            driver.quit();
-        }
+        page.setMonth("07");
+        page.setYear("2020");
+        page.searchButton();
+        Assert.assertEquals("Neymar", page.getDataRow(0, 2));
     }
 }

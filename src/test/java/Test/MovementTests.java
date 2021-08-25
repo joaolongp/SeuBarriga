@@ -1,28 +1,24 @@
 package Test;
 
 import Data.MovementMandatoryFields;
-import PageObjects.Home;
-import PageObjects.Login;
-import PageObjects.Movement;
 import Pages.AccountPages.AddAccountPage;
 import Pages.HomePage;
 import Pages.LoginPage;
 import Pages.MovementPage;
-import Util.SetUp;
 import org.junit.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class MovementTests extends BaseTests{
 
     private MovementPage page = new MovementPage(driver);
     private MovementMandatoryFields data = new MovementMandatoryFields();
+    private String accountName;
 
     @Before
     public void set(){
         new LoginPage(driver).signIn("test@mail.com", "test");
         new HomePage(driver).openAddAccount();
-        new AddAccountPage(driver).setNameAndSave("Adriano");
+        accountName = "Adriano";
+        new AddAccountPage(driver).setNameAndSave(accountName);
         new HomePage(driver).openCreateMovement();
     }
 
@@ -34,33 +30,108 @@ public class MovementTests extends BaseTests{
         }
     }
 
-//    @Test
-//    public void invalidValorTest(){
-//        screen.setDateTransaction("01/07/2020");
-//        screen.setDatePayment("01/07/2020");
-//        screen.setDesc("test");
-//        screen.setInterested("test");
-//        screen.setValor("abc");
-//        screen.setType("REC");
-//        screen.setAccount(0);
-//        screen.setSituation("status_pago");
-//        screen.saveButton();
-//
-//        Assert.assertTrue(screen.errorMessagesList().contains(screen.mandatoryFields.get("caracterValor")));
-//    }
-//
-//    @Test
-//    public void movimentacaoValidaTest(){
-//        screen.setDateTransaction("01/07/2020");
-//        screen.setDatePayment("01/07/2020");
-//        screen.setDesc("test");
-//        screen.setInterested("test");
-//        screen.setValor("200");
-//        screen.setType("REC");
-//        screen.setAccount(0);
-//        screen.setSituation("status_pago");
-//        screen.saveButton();
-//
-//        Assert.assertEquals("Movimentação adicionada com sucesso!", driver.findElement(By.cssSelector(".alert.alert-success")).getText());
-//    }
+    @Test
+    public void invalidValorTest(){
+        page.setDateTransaction("01/07/2020");
+        page.setDatePayment("01/07/2020");
+        page.setDescription("descriçao para a movimentação");
+        page.setInterested("Seu Barriga");
+        page.setValor("abc");
+        page.setType("REC");
+        page.setAccount(accountName);
+        page.setSituation("status_pago");
+        page.saveButton();
+
+        Assert.assertTrue(page.getErrorMessagesList().contains(data.mandatoryFields.get("caracterValor")));
+    }
+
+    @Test
+    public void noValorTest(){
+        page.setDateTransaction("01/07/2020");
+        page.setDatePayment("01/07/2020");
+        page.setDescription("descriçao para a movimentação");
+        page.setInterested("Seu Barriga");
+        page.setValor("");
+        page.setType("REC");
+        page.setAccount(accountName);
+        page.setSituation("status_pago");
+        page.saveButton();
+
+        Assert.assertTrue(page.getErrorMessagesList().contains(data.mandatoryFields.get("valor")));
+    }
+
+    @Test
+    public void noTransactionDateTest(){
+        page.setDateTransaction("");
+        page.setDatePayment("01/07/2020");
+        page.setDescription("descriçao para a movimentação");
+        page.setInterested("Seu Barriga");
+        page.setValor("200");
+        page.setType("REC");
+        page.setAccount(accountName);
+        page.setSituation("status_pago");
+        page.saveButton();
+
+        Assert.assertTrue(page.getErrorMessagesList().contains(data.mandatoryFields.get("dataMovimento")));
+    }
+
+    @Test
+    public void noPaymentDateTest(){
+        page.setDateTransaction("01/07/2020");
+        page.setDatePayment("");
+        page.setDescription("descriçao para a movimentação");
+        page.setInterested("Seu Barriga");
+        page.setValor("200");
+        page.setType("REC");
+        page.setAccount(accountName);
+        page.setSituation("status_pago");
+        page.saveButton();
+
+        Assert.assertTrue(page.getErrorMessagesList().contains(data.mandatoryFields.get("dataPgto")));
+    }
+
+    @Test
+    public void noDescriptionTest(){
+        page.setDateTransaction("01/07/2020");
+        page.setDatePayment("01/07/2020");
+        page.setDescription("");
+        page.setInterested("Seu Barriga");
+        page.setValor("200");
+        page.setType("REC");
+        page.setAccount(accountName);
+        page.setSituation("status_pago");
+        page.saveButton();
+
+        Assert.assertTrue(page.getErrorMessagesList().contains(data.mandatoryFields.get("descricao")));
+    }
+
+    @Test
+    public void noInterestedTest(){
+        page.setDateTransaction("01/07/2020");
+        page.setDatePayment("01/07/2020");
+        page.setDescription("descriçao para a movimentação");
+        page.setInterested("");
+        page.setValor("200");
+        page.setType("REC");
+        page.setAccount(accountName);
+        page.setSituation("status_pago");
+        page.saveButton();
+
+        Assert.assertTrue(page.getErrorMessagesList().contains(data.mandatoryFields.get("interessado")));
+    }
+
+    @Test
+    public void validMovementTest(){
+        page.setDateTransaction("01/07/2020");
+        page.setDatePayment("01/07/2020");
+        page.setDescription("descriçao para a movimentação");
+        page.setInterested("Seu Barriga");
+        page.setValor("200");
+        page.setType("REC");
+        page.setAccount(accountName);
+        page.setSituation("status_pago");
+        page.saveButton();
+
+        Assert.assertEquals("Movimentação adicionada com sucesso!", page.getSuccessMessage());
+    }
 }

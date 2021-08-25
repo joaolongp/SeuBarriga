@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,33 +18,58 @@ public class Extract extends Base {
         super(driver);
     }
 
-    public void setMonth(String mes) {
-        Select dropDown = new Select(driver.findElement(By.id("mes")));
-        dropDown.selectByValue(mes);
+    protected Select month() {
+        return new Select(driver.findElement(By.id("mes")));
     }
 
-    public void setYear(String ano) {
-        Select dropDown = new Select(driver.findElement(By.id("ano")));
-        dropDown.selectByValue(ano);
+    protected Select year() {
+        return new Select(driver.findElement(By.id("ano")));
     }
 
-    public void searchButton() {
-        driver.findElement(By.cssSelector(".btn.btn-primary")).click();
+    protected WebElement button() {
+        return driver.findElement(By.className("btn-primary"));
     }
 
-    public Map<Integer, List<WebElement>> getData() {
-        int index = 0;
-        for (WebElement element : driver.findElements(By.cssSelector("#tabelaExtrato > tbody > tr"))) {
-            dados.put(index++ , element.findElements(By.tagName("td")));
+    protected Map<Integer, WebElement> movementByIndex(int index){
+        return movementList().get(index);
+    }
+
+    protected WebElement dataFromMovement(int index, int row){
+        return movementByIndex(index).get(row);
+    }
+
+    protected List<Map<Integer, WebElement>> movementList(){
+        List<Map<Integer, WebElement>> list = new ArrayList<>();
+        for (WebElement element:
+             driver.findElement(By.id("tabelaExtrato")).findElement(By.tagName("tbody")).findElements(By.tagName("tr"))) {
+            list.add(movementToMap(element));
         }
-        return dados;
+        return list;
     }
 
-    public List<WebElement> getItens(int index){
-        return getData().get(index);
+    private Map<Integer, WebElement> movementToMap(WebElement movement){
+        Map<Integer, WebElement> map = new HashMap<>();
+        int id = 0;
+        for (WebElement element:
+             movement.findElements(By.tagName("td"))) {
+            map.put(id++, element);
+        }
+        return map;
     }
 
-    public WebElement getItemByIndex(int dado, int index){
-        return getItens(dado).get(index);
-    }
+//    public Map<Integer, List<WebElement>> getData() {
+//        int index = 0;
+//        for (WebElement element : driver.findElements(By.cssSelector("#tabelaExtrato > tbody > tr"))) {
+//            dados.put(index++ , element.findElements(By.tagName("td")));
+//        }
+//        return dados;
+//    }
+//
+//    public List<WebElement> getItens(int index){
+//        return getData().get(index);
+//    }
+//
+//    public WebElement getItemByIndex(int dado, int index){
+//        return getItens(dado).get(index);
+//    }
 }

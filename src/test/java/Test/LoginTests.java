@@ -2,7 +2,6 @@ package Test;
 
 import Pages.LoginPage;
 import org.junit.*;
-import org.openqa.selenium.By;
 
 public class LoginTests extends BaseTests{
 

@@ -1,15 +1,11 @@
 package PageObjects;
 
-import Data.MovementMandatoryFields;
-import com.sun.org.glassfish.gmbal.Description;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class Movement extends Base {
 
@@ -21,6 +17,10 @@ public class Movement extends Base {
         return driver.findElement(By.className("btn-group"));
     }
 
+    protected WebElement successAlert(){
+        return driver.findElement(By.className("alert-success"));
+    }
+
     protected List<WebElement> errorAlertList(){
         return driver.findElement(By.className("alert-danger")).findElements(By.tagName("li"));
     }
@@ -29,11 +29,15 @@ public class Movement extends Base {
         return errorAlertList().get(index);
     }
 
+    protected Select typesDropDown(){
+        return new Select(driver.findElement(By.id("tipo")));
+    }
+
     protected WebElement dateTransaction(){
         return driver.findElement(By.id("data_transacao"));
     }
 
-    protected WebElement DatePayment(){
+    protected WebElement datePayment(){
         return driver.findElement(By.id("data_pagamento"));
     }
 
@@ -49,11 +53,7 @@ public class Movement extends Base {
         return driver.findElement(By.id("valor"));
     }
 
-    protected Select typesDropDown(){
-        return new Select(driver.findElement(By.id("tipo")));
-    }
-
-    protected Select account(int index){
+    protected Select account(){
         return new Select(driver.findElement(By.id("conta")));
     }
 

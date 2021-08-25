@@ -17,6 +17,10 @@ public class MovementPage extends Movement {
         save().click();
     }
 
+    public String getSuccessMessage(){
+        return successAlert().getText();
+    }
+
     public List<String> getErrorMessagesList(){
         List<String> alertList = new ArrayList<>();
         for (WebElement element:
@@ -26,7 +30,35 @@ public class MovementPage extends Movement {
         return alertList;
     }
 
-    public String getErrorMessageByIndex(int index){
-        return getErrorMessagesList().get(index);
+    public void setType(String value){
+        typesDropDown().selectByValue(value);
+    }
+
+    public void setDateTransaction(String date){
+        dateTransaction().sendKeys(date);
+    }
+
+    public void setDatePayment(String date){
+        datePayment().sendKeys(date);
+    }
+
+    public void setDescription(String description){
+        description().sendKeys(description);
+    }
+
+    public void setInterested(String interested){
+        interested().sendKeys(interested);
+    }
+
+    public void setValor(String valor){
+        valor().sendKeys(valor);
+    }
+
+    public void setAccount(String account){
+        account().selectByVisibleText(account);
+    }
+
+    public void setSituation(String id){
+        situation(id);
     }
 }

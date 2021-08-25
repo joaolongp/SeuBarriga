@@ -10,19 +10,19 @@ public class Login extends Base {
         super(driver);
     }
 
-    public WebElement email(){
+    protected WebElement email(){
         return driver.findElement(By.id("email"));
     }
 
-    public WebElement password(){
+    protected WebElement password(){
         return driver.findElement(By.id("senha"));
     }
 
-    public WebElement button(){
+    protected WebElement button(){
         return driver.findElement(By.className("btn-primary"));
     }
 
-    public WebElement errorAlert(){
+    protected WebElement errorAlert(){
         return driver.findElement(By.className("alert-danger"));
     }
 }

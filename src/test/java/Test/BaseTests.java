@@ -2,7 +2,6 @@ package Test;
 
 import Util.SetUp;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 
@@ -15,10 +14,10 @@ public class BaseTests {
         driver.get("https://seubarriga.wcaquino.me/");
     }
 
-//    @After
-//    public void teardown() {
-//        if (driver != null) {
-//            driver.quit();
-//        }
-//    }
+    @After
+    public void teardown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 }
