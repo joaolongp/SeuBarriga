@@ -5,16 +5,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ExtractScreen extends BaseScreen{
+public class Extract extends Base {
 
     private Map<Integer, List<WebElement>> dados = new HashMap();
 
-    public ExtractScreen(WebDriver driver) {
+    public Extract(WebDriver driver) {
         super(driver);
     }
 

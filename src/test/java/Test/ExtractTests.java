@@ -1,8 +1,9 @@
 package Test;
 
-import PageObjects.ExtractScreen;
-import PageObjects.HomeScreen;
-import PageObjects.LoginScreen;
+import PageObjects.Extract;
+import PageObjects.Home;
+import PageObjects.Login;
+import Pages.LoginPage;
 import Util.SetUp;
 import org.junit.After;
 import org.junit.Assert;
@@ -10,16 +11,16 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-public class ExtractScreenTests {
+public class ExtractTests {
 
     private static WebDriver driver = new SetUp().getWebDriver();
-    private ExtractScreen screen = new ExtractScreen(driver);
+    private Extract screen = new Extract(driver);
 
     @BeforeClass
     public static void startUp(){
         driver.get("https://seubarriga.wcaquino.me/");
-        new LoginScreen(driver).Do();
-        new HomeScreen(driver).monthlyReview();
+        new LoginPage(driver).signIn("test@mail.com", "test");
+        new Home(driver).monthlyReview();
     }
 
     @Test
